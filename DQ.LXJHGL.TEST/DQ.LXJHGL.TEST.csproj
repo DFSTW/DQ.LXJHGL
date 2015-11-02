@@ -34,11 +34,15 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Thyt.TiPLM.CLT.Admin.BPM">
+      <HintPath>D:\Document\Desktop\PLM\PLMServer\Thyt.TiPLM.CLT.Admin.BPM.DLL</HintPath>
+    </Reference>
     <Reference Include="Thyt.TiPLM.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\Document\Desktop\PLM\PLMServer\Thyt.TiPLM.Common.dll</HintPath>
@@ -46,6 +50,20 @@
     <Reference Include="Thyt.TiPLM.Common.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\Document\Desktop\PLM\PLMServer\Thyt.TiPLM.Common.Interface.DLL</HintPath>
+    </Reference>
+    <Reference Include="Thyt.TiPLM.DEL.Admin.NewResponsibility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Document\Desktop\PLM\PLMServer\Thyt.TiPLM.DEL.Admin.NewResponsibility.DLL</HintPath>
+    </Reference>
+    <Reference Include="Thyt.TiPLM.UIL.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Document\Desktop\PLM\PLMServer\Thyt.TiPLM.UIL.Common.DLL</HintPath>
+    </Reference>
+    <Reference Include="Thyt.TiPLM.UIL.Product">
+      <HintPath>D:\Document\Desktop\PLM\PLMServer\Thyt.TiPLM.UIL.Product.DLL</HintPath>
+    </Reference>
+    <Reference Include="Thyt.TiPLM.UIL.TiMessage">
+      <HintPath>D:\Document\Desktop\PLM\PLMServer\Thyt.TiPLM.UIL.TiMessage.DLL</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

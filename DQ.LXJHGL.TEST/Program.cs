@@ -1,22 +1,40 @@
-﻿using DQ.LXJHGL.COMMON;
+﻿using DQ.LXJHGL.CLT;
+using DQ.LXJHGL.COMMON;
 using DQ.LXJHGL.SVR;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Windows.Forms;
+using Thyt.TiPLM.CLT.Admin.BPM;
+using Thyt.TiPLM.UIL.Common;
+using Thyt.TiPLM.UIL.Product;
 
 namespace DQ.LXJHGL.TEST
 {
     class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
             //TestSvr();
+            
+            //List<LXJHGLInstance> x = new List<LXJHGLInstance>();
+            //var type = x.GetType();
+            //Console.WriteLine(type.IsSerializable);
+            //var form = new BinaryFormatter();
+            // throws
+            //form.Serialize(new MemoryStream(), x);
+            
+            TestClt();
 
-            var x = new LXJHGLSVR();
-            var type = x.GetUserType("15600");
-            type = x.GetUserType("02309");
-            type = x.GetUserType("11621");
+            //Test GetUserType
+            //var x = new LXJHGLSVR();
+            //var type = x.GetUserType("15600");
+            //type = x.GetUserType("02309");
+            //type = x.GetUserType("11621");
 
             //TEST IMPORT
             //string file = "路线任务2015-10-16.xls";
@@ -68,5 +86,72 @@ namespace DQ.LXJHGL.TEST
             task.Completetime = Completetime;
             return task;
         }
+
+        private static void TestClt()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            bool isLoged = Login();
+            if (!isLoged) return;
+
+            LXJHGLCLT client = new LXJHGLCLT();
+            client.Activate();
+            SomeForm.ShowForm();
+            Application.Run(SomeForm.someForm);
+        }
+        /// <summary>
+        /// 初始PLM公共数据
+        /// </summary>
+        /// <param name="user">登陆用户</param>
+        /// <returns></returns>
+        private static bool Init()
+        {
+            try
+            {
+                //this.curUser = user;
+                PSInit.InitPS(ClientData.LogonUser, false);
+                BPMEventInit.InitBPMEvent();
+                Thyt.TiPLM.UIL.TiMessage.UIMessage.Instance.InitilizeMessage(null);
+                //Thyt.TiPLM.UIL.Addin.AddinDeployment.Instance.SyncAddinsWithServer();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //System.Diagnostics.EventLog.WriteEntry("PLM集成控件",ex.ToString(),System.Diagnostics.EventLogEntryType.Error);
+                PrintException.Print(ex);
+                return false;
+            }
+        }
+
+        /// <returns>
+        /// 登录成功返回true
+        /// </returns>
+        public static bool Login()
+        {
+            string product = "TiDesk";
+            bool isLogin = false;
+            try
+            {
+                //product += "Unknown";
+                //   MessageBox.Show("1");
+                if (FrmLogon.Logon(product, true))
+                {
+
+                    if (Init())
+                    {
+                        isLogin = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                PrintException.Print(ex);
+            }
+            return isLogin;
+        }
+        /// <summary>
+        /// 注销登录
+        /// </summary>
     }
 }

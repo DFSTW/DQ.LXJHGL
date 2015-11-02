@@ -5,6 +5,7 @@ using System.Text;
 
 namespace DQ.LXJHGL.COMMON
 {
+    [Serializable]
     public enum LXJHGLStatus
     {
         未分配 = 1,
@@ -14,9 +15,11 @@ namespace DQ.LXJHGL.COMMON
         完成 = 5,
         取消 = 6
     }
+
+    [Serializable]
     public class LXJHGLInstance
     {
-        
+
         /// <summary>
         /// 图号
         /// </summary>

@@ -33,6 +33,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,8 +46,16 @@
     <Reference Include="Thyt.TiPLM.Common.Interface">
       <HintPath>D:\Document\Desktop\PLM\PLMServer\Thyt.TiPLM.Common.Interface.DLL</HintPath>
     </Reference>
+    <Reference Include="Thyt.TiPLM.DEL.Admin.NewResponsibility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Document\Desktop\PLM\PLMServer\Thyt.TiPLM.DEL.Admin.NewResponsibility.DLL</HintPath>
+    </Reference>
     <Reference Include="Thyt.TiPLM.DEL.Environment">
       <HintPath>D:\Document\Desktop\PLM\PLMServer\Thyt.TiPLM.DEL.Environment.DLL</HintPath>
+    </Reference>
+    <Reference Include="Thyt.TiPLM.PLL.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Document\Desktop\PLM\PLMServer\Thyt.TiPLM.PLL.Common.DLL</HintPath>
     </Reference>
     <Reference Include="Thyt.TiPLM.UIL.Common">
       <HintPath>D:\Document\Desktop\PLM\PLMServer\Thyt.TiPLM.UIL.Common.DLL</HintPath>
@@ -54,12 +64,23 @@
   <ItemGroup>
     <Compile Include="LXJHGLCLT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SomeForm.Designer.cs">
+      <DependentUpon>SomeForm.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DQ.LXJHGL.COMMON\DQ.LXJHGL.COMMON.csproj">
       <Project>{e11d8279-52e0-490f-b5de-4005b2be86fc}</Project>
       <Name>DQ.LXJHGL.COMMON</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SomeForm.resx">
+      <DependentUpon>SomeForm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -9,7 +9,12 @@ namespace DQ.LXJHGL.COMMON
     {
         public const string RemotingURL = "DQ/Common/LXJHGL.rem";
     }
-
+    public enum LXJHGLUserType
+    {
+        其他 = 1,
+        组员 = 2,
+        组长 = 3,
+    }
     public interface ILXJHGLAddin
     {
         /// <summary>
@@ -27,9 +32,11 @@ namespace DQ.LXJHGL.COMMON
         bool UpdateTasks(List<LXJHGLInstance> tasks);
 
         List<LXJHGLInstance> GetTasksByStatus(LXJHGLStatus status, string userName);
-        
+
         List<LXJHGLInstance> GetAllTasks();
         //List<LXJHGLInstance> GetTasksByUser(string user);
         //List<LXJHGLInstance> GetTasksByTime(DateTime fromtime, DateTime totime);
-    }
+
+        LXJHGLUserType GetUserType(string userLogId);
+    } 
 }

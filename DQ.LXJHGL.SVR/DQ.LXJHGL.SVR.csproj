@@ -42,6 +42,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Thyt.TiPLM.BRL.Admin.NewResponsibility, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Document\Desktop\PLM\PLMServer\Thyt.TiPLM.BRL.Admin.NewResponsibility.DLL</HintPath>
+    </Reference>
     <Reference Include="Thyt.TiPLM.BRL.Common">
       <HintPath>D:\Document\Desktop\PLM\PLMServer\Thyt.TiPLM.BRL.Common.DLL</HintPath>
     </Reference>
@@ -56,6 +60,10 @@
     </Reference>
     <Reference Include="Thyt.TiPLM.DAL.Environment">
       <HintPath>D:\Document\Desktop\PLM\PLMServer\Thyt.TiPLM.DAL.Environment.DLL</HintPath>
+    </Reference>
+    <Reference Include="Thyt.TiPLM.DEL.Admin.NewResponsibility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Document\Desktop\PLM\PLMServer\Thyt.TiPLM.DEL.Admin.NewResponsibility.DLL</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

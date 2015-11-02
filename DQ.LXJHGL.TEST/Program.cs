@@ -13,8 +13,14 @@ namespace DQ.LXJHGL.TEST
         {
             //TestSvr();
 
-            string file = "路线任务2015-10-16.xls";
-            var result = TestExcelImport(file);
+            var x = new LXJHGLSVR();
+            var type = x.GetUserType("15600");
+            type = x.GetUserType("02309");
+            type = x.GetUserType("11621");
+
+            //TEST IMPORT
+            //string file = "路线任务2015-10-16.xls";
+            //var result = TestExcelImport(file);
         }
 
         private static List<LXJHGLInstance> TestExcelImport(string file)

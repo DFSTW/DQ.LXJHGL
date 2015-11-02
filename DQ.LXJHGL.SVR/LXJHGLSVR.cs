@@ -47,5 +47,11 @@ namespace DQ.LXJHGL.SVR
         {
             return new PRLXJHGLS().GetAllTasks();
         }
+
+
+        public LXJHGLUserType GetUserType(string userLogId)
+        {
+            return new PRLXJHGLS().GetUserType(userLogId);
+        }
     }
 }

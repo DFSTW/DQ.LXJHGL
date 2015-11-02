@@ -70,6 +70,18 @@
     <Compile Include="SomeForm.Designer.cs">
       <DependentUpon>SomeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="zyjm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="zyjm.Designer.cs">
+      <DependentUpon>zyjm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="zzjm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="zzjm.Designer.cs">
+      <DependentUpon>zzjm.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DQ.LXJHGL.COMMON\DQ.LXJHGL.COMMON.csproj">
@@ -80,6 +92,12 @@
   <ItemGroup>
     <EmbeddedResource Include="SomeForm.resx">
       <DependentUpon>SomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="zyjm.resx">
+      <DependentUpon>zyjm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="zzjm.resx">
+      <DependentUpon>zzjm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

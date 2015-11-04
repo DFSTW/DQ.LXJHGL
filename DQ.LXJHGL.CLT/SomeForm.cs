@@ -57,5 +57,10 @@ namespace DQ.LXJHGL.CLT
         {
             var result = LXJHGLCLT.Agent.ImportTasks(Tasks);
         }
+
+        private void SomeForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

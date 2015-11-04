@@ -95,10 +95,16 @@ namespace DQ.LXJHGL.TEST
             bool isLoged = Login();
             if (!isLoged) return;
 
+            //加入判断权限
+
+
             LXJHGLCLT client = new LXJHGLCLT();
             client.Activate();
-            SomeForm.ShowForm();
-            Application.Run(SomeForm.someForm);
+            zzjm.showzzjm();
+            Application.Run(zzjm.ZZJM);
+
+            //SomeForm.ShowForm();
+            //Application.Run(SomeForm.someForm);
         }
         /// <summary>
         /// 初始PLM公共数据

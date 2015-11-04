@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using DQ.LXJHGL.COMMON;
+using Thyt.TiPLM.UIL.Common;
 
 
 namespace DQ.LXJHGL.CLT
@@ -26,6 +27,17 @@ namespace DQ.LXJHGL.CLT
         public zzjm()
         {
             InitializeComponent();
+        }
+
+        public static void showzzjm()
+        {
+
+            if ((ZZJM == null) || ZZJM.IsDisposed)
+                ZZJM = new zzjm();
+
+            ZZJM.MdiParent = ClientData.mainForm;
+            ZZJM.Show();
+            ZZJM.Activate();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -78,7 +90,7 @@ namespace DQ.LXJHGL.CLT
             dataGridView1.Columns[1].ReadOnly = true;
             dataGridView1.Columns[2].ReadOnly = true;
             dataGridView1.Columns[3].ReadOnly = true;
-            dataGridView1.Columns[4].ReadOnly = true;
+            dataGridView1.Columns[4].ReadOnly = false;
             dataGridView1.Columns[5].ReadOnly = true;
             dataGridView1.Columns[6].ReadOnly = true;
             dataGridView1.Columns[7].ReadOnly = true;
@@ -87,7 +99,7 @@ namespace DQ.LXJHGL.CLT
             dataGridView1.Columns[10].ReadOnly = true;
             dataGridView1.Columns[11].ReadOnly = true;
             dataGridView1.Columns[12].ReadOnly = true;
-            dataGridView1.Columns[13].ReadOnly = true;
+            dataGridView1.Columns[13].ReadOnly = false;
             dataGridView1.Columns[14].ReadOnly = true;
        
         }

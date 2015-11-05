@@ -21,7 +21,8 @@ namespace DQ.LXJHGL.COMMON
                 {
                     IRow row = sheet.GetRow(i);
                     ICell cell = row == null ? null : row.GetCell(0);
-                    if (cell != null && !string.IsNullOrEmpty(cell.StringCellValue))
+                    //if (cell != null && !string.IsNullOrEmpty(cell.StringCellValue))
+                    if (cell != null )
                     {
                         var task = new LXJHGLInstance();
                         task.Id = cell.StringCellValue;

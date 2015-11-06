@@ -22,11 +22,11 @@ namespace DQ.LXJHGL.CLT
                 var userType = Agent.GetUserType(ClientData.LogonUser.LogId);
                 if (userType == LXJHGLUserType.组长)
                 {
-                    SomeForm.ShowForm();
+                    zzjm.showzzjm();
                 }
                 else if (userType == LXJHGLUserType.组员)
                 {
-                    //SomeForm2.ShowForm();
+                    zyjm.showzyjm();
                 }
             }
             catch (Exception e)

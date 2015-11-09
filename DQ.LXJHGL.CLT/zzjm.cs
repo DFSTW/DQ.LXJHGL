@@ -52,6 +52,7 @@ namespace DQ.LXJHGL.CLT
                 {
                     count++;
                 }
+             }
 
                 if (count == 0)
                 {
@@ -64,7 +65,7 @@ namespace DQ.LXJHGL.CLT
                     {
                          for (int j = 0; j < dataGridView1.Rows.Count; j++)
                             {
-                               if ((bool)dataGridView1.Rows[i].Cells[0].EditedFormattedValue == true)
+                               if ((bool)dataGridView1.Rows[j].Cells[0].EditedFormattedValue == true)
                                       {
                                          LXJHGLCLT.Agent.UpdateTasks(Tasks);
                                        }
@@ -77,7 +78,7 @@ namespace DQ.LXJHGL.CLT
                     }
                 }
               }
-            }
+            
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
@@ -125,30 +126,20 @@ namespace DQ.LXJHGL.CLT
                 string file = openFileDialog1.FileName;
                 Tasks = ExcelUtil.ImportTasks(file);
 
+
                 var result = LXJHGLCLT.Agent.ImportTasks(Tasks);
-
-                //copy data to datagridview
-                ////数据源的定义 
-                string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source = " + file + ";Extended Properties = Excel 8.0";
-                ////Sql语句（查找表中所有数据） 
-                string strExcel = "select * from [Sheet1$]";
-                ////定义存放的数据表 
-                DataSet ds = new DataSet();
-                ////连接数据源 
-                OleDbConnection conn = new OleDbConnection(strConn);
-                conn.Open();
-                ////适配到数据源 
-                OleDbDataAdapter adapter = new OleDbDataAdapter(strExcel, conn);
-                adapter.Fill(ds, "[Sheet1$]");
-                conn.Close();
-                ////将Excel表中数据导入DataGridView的DataSource中 
-                dataGridView1.DataSource = ds.Tables["[Sheet1$]"];
-
-                //如果有重复导入，输出到dt2
-                var reback = LXJHGLCLT.Agent.ImportTasks(Tasks);
-                dataGridView2.DataSource = reback;
-                
-
+                if (result.Count == 0)
+                {
+                     result = LXJHGLCLT.Agent.ImportTasks(Tasks);
+                    dataGridView1.DataSource = result;
+                }
+                else
+                {
+                    //如果有重复导入，输出到dt2
+                    var reback = LXJHGLCLT.Agent.ImportTasks(Tasks);
+                    dataGridView2.DataSource = reback;
+                }
+                        
             }
         }
 

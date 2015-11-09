@@ -21,13 +21,16 @@ namespace DQ.LXJHGL.COMMON
                 {
                     IRow row = sheet.GetRow(i);
                     ICell cell = row == null ? null : row.GetCell(0);
-                    //if (cell != null && !string.IsNullOrEmpty(cell.StringCellValue))
-                    if (cell != null )
+                    if (cell != null && !string.IsNullOrEmpty(cell.StringCellValue))              
                     {
                         var task = new LXJHGLInstance();
                         task.Id = cell.StringCellValue;
                         task.Name = row.GetCell(1).StringCellValue;
+                        cell = row == null ? null : row.GetCell(2);
+                        if(cell.CellType == CellType.String)
                         task.Version = int.Parse(row.GetCell(2).StringCellValue);
+                        if (cell.CellType == CellType.Numeric)
+                            task.Version = (int)(row.GetCell(2).NumericCellValue);
                         task.Releaser = row.GetCell(3).StringCellValue;
                         task.Releasetime = DateTime.ParseExact(row.GetCell(4).StringCellValue, 
                             "yyyy年MM月dd日", CultureInfo.InvariantCulture);

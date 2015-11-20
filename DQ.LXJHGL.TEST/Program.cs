@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using Thyt.TiPLM.CLT.Admin.BPM;
 using Thyt.TiPLM.UIL.Common;
 using Thyt.TiPLM.UIL.Product;
+using Thyt.TiPLM.PLL.Common;
+
 
 namespace DQ.LXJHGL.TEST
 {
@@ -86,9 +88,10 @@ namespace DQ.LXJHGL.TEST
             task.Completetime = Completetime;
             return task;
         }
-
+        public static ILXJHGLAddin Agent = null;
         private static void TestClt()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -96,13 +99,24 @@ namespace DQ.LXJHGL.TEST
             if (!isLoged) return;
 
             //加入判断权限
-
-
+         
             LXJHGLCLT client = new LXJHGLCLT();
-            client.Activate();
-            zzjm.showzzjm();
-            Application.Run(zzjm.ZZJM);
+            //client.Activate();
+            LXJHGLCLT.Agent = RemoteProxy.GetObject(typeof(ILXJHGLAddin),
+                                          ConstLXJHGL.RemotingURL) as ILXJHGLAddin;
 
+            var userType = LXJHGLCLT.Agent.GetUserType(ClientData.LogonUser.LogId);
+                if (userType == LXJHGLUserType.组长)
+                {
+                    zzjm.showzzjm();
+                    Application.Run(zzjm.ZZJM);
+                }
+                else if (userType == LXJHGLUserType.组员)
+                {
+                    zyjm.showzyjm();
+                    Application.Run(zyjm.ZYJM);
+                }
+            
             //SomeForm.ShowForm();
             //Application.Run(SomeForm.someForm);
         }

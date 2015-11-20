@@ -37,12 +37,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.boxcreator = new System.Windows.Forms.CheckedListBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.boxid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -90,6 +92,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "查询";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -103,12 +106,14 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
-            this.groupBox2.Controls.Add(this.checkedListBox1);
+            this.groupBox2.Controls.Add(this.boxcreator);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.boxid);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(15, 80);
             this.groupBox2.Name = "groupBox2";
@@ -120,7 +125,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(329, 27);
+            this.label5.Location = new System.Drawing.Point(574, 30);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 12);
             this.label5.TabIndex = 8;
@@ -136,18 +141,18 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(376, 21);
+            this.dateTimePicker1.Location = new System.Drawing.Point(609, 21);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(107, 21);
             this.dateTimePicker1.TabIndex = 4;
             // 
-            // checkedListBox1
+            // boxcreator
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(200, 21);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(88, 20);
-            this.checkedListBox1.TabIndex = 3;
+            this.boxcreator.FormattingEnabled = true;
+            this.boxcreator.Location = new System.Drawing.Point(200, 21);
+            this.boxcreator.Name = "boxcreator";
+            this.boxcreator.Size = new System.Drawing.Size(88, 20);
+            this.boxcreator.TabIndex = 3;
             // 
             // label2
             // 
@@ -158,12 +163,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "编制者";
             // 
-            // textBox1
+            // boxid
             // 
-            this.textBox1.Location = new System.Drawing.Point(62, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(56, 21);
-            this.textBox1.TabIndex = 1;
+            this.boxid.Location = new System.Drawing.Point(62, 20);
+            this.boxid.Name = "boxid";
+            this.boxid.Size = new System.Drawing.Size(56, 21);
+            this.boxid.TabIndex = 1;
             // 
             // label1
             // 
@@ -200,11 +205,33 @@
             this.dataGridView2.TabIndex = 3;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "未接收",
+            "接收",
+            "完成",
+            "取消"});
+            this.comboBox1.Location = new System.Drawing.Point(384, 20);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(114, 20);
+            this.comboBox1.TabIndex = 9;
+            this.comboBox1.Text = "请选择…";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(314, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "执行状态";
+            // 
             // Column1
             // 
             this.Column1.HeaderText = " ";
             this.Column1.Name = "Column1";
-            this.Column1.Width = 50;
             // 
             // zzjm
             // 
@@ -237,12 +264,14 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox boxcreator;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox boxid;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
     }
 }

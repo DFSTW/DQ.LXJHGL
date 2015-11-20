@@ -28,6 +28,9 @@ namespace DQ.LXJHGL.CLT
         public zzjm()
         {
             InitializeComponent();
+
+            Tasks = LXJHGLCLT.Agent.GetTasksByStatus(LXJHGLStatus.未分配, string.Empty);
+            dataGridView1.DataSource = Tasks;
         }
 
         public static void showzzjm()
@@ -43,6 +46,7 @@ namespace DQ.LXJHGL.CLT
 
         private void button3_Click(object sender, EventArgs e)
         {
+           
             try
             {
                 //判断checkbox是否选中
@@ -71,33 +75,13 @@ namespace DQ.LXJHGL.CLT
                         {
                             if ((bool)dataGridView1.Rows[j].Cells[0].EditedFormattedValue == true)
                             {
-                                //for (int k = 0; k < dataGridView1.Columns.Count; k++)
-                                {
-
-                                    Tasks[j].Creator = dataGridView1.Rows[j].Cells[7].Value.ToString();
-                                    if (dataGridView1.Rows[j].Cells[11].Value != null)
-                                        Tasks[j].Bz = dataGridView1.Rows[j].Cells[11].Value.ToString();
-                                    //dataGridView1.Rows[j].Cells[0].Value.ToString();
-                                    // task.Id = dataGridView1.Rows[j].Cells[1].Value.ToString();
-                                    // task.Name = dataGridView1.Rows[j].Cells[2].Value.ToString();
-                                    // //cell = row == null ? null : row.GetCell(2);
-
-                                    //     task.Version = (int)(dataGridView1.Rows[j].Cells[3].Value);
-                                    // //if (cell.CellType == CellType.Numeric)
-                                    // //    task.Version = (int)(row.GetCell(2).NumericCellValue);
-                                    // task.Releaser = dataGridView1.Rows[j].Cells[4].Value.ToString();
-                                    // task.Releasetime = (DateTime)(dataGridView1.Rows[j].Cells[5].Value);
-                                    //task.Type = dataGridView1.Rows[j].Cells[6].Value.ToString();
-                                    //task.Creator = dataGridView1.Rows[j].Cells[7].Value.ToString(); ;
-                                    //task.Status = (LXJHGLStatus)(dataGridView1.Rows[j].Cells[8].Value);
-                                    //task.Taskcreatime = (DateTime)(dataGridView1.Rows[j].Cells[9].Value);
-                                    //updateList.Add(task);
-                                    Tasks[j].Creator = dataGridView1.Rows[j].Cells[7].Value.ToString();
-                                    
-                                    //Tasks[j].Difficulty =(int)( dataGridView1.Rows[j].Cells[13].Value);
-                                }
+                                Tasks[j].Status = LXJHGLStatus.未接收;            
+                                Tasks[j].Creator = dataGridView1.Rows[j].Cells[7].Value.ToString();                           
+                                if (dataGridView1.Rows[j].Cells[11].Value != null)
+                                { Tasks[j].Bz = dataGridView1.Rows[j].Cells[11].Value.ToString(); }
+                                 Tasks[j].Difficulty =(int)( dataGridView1.Rows[j].Cells[13].Value);                                                                  
                             }
-
+                            
                         }
 
                     }
@@ -117,7 +101,18 @@ namespace DQ.LXJHGL.CLT
             //改变数据库中数据
             LXJHGLCLT.Agent.UpdateTasks(Tasks);
             //重新绑定datagridview
+            dataGridView1.DataSource = Tasks;
         }
+
+        //private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    // Update the status column whenever the value of creator cell changes.         
+        //    UpdateStatus();
+        //}
+        //private void dataGridView1_endedit()
+        //{
+        //    UpdateStatus();
+        //}
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -127,7 +122,7 @@ namespace DQ.LXJHGL.CLT
             dataGridView1.Columns[4].ReadOnly = true;
             dataGridView1.Columns[5].ReadOnly = true;
             dataGridView1.Columns[6].ReadOnly = true;
-            dataGridView1.Columns[7].ReadOnly = false;
+            dataGridView1.Columns[7].ReadOnly = false;          
             dataGridView1.Columns[8].ReadOnly = true;
             dataGridView1.Columns[9].ReadOnly = true;
             dataGridView1.Columns[10].ReadOnly = true;
@@ -135,6 +130,7 @@ namespace DQ.LXJHGL.CLT
             dataGridView1.Columns[12].ReadOnly = true;
             dataGridView1.Columns[13].ReadOnly = false;
             dataGridView1.Columns[14].ReadOnly = true;
+
         }
 
 
@@ -165,9 +161,8 @@ namespace DQ.LXJHGL.CLT
                     //如果有重复导入，输出到dt2
                     dataGridView2.DataSource = result;
                 }
-                //Tasks = LXJHGLCLT.Agent.GetAllTasks();
-
-
+             
+                Tasks = LXJHGLCLT.Agent.ImportTasks(Tasks);
                 dataGridView1.DataSource = Tasks;
 
             }
@@ -177,6 +172,32 @@ namespace DQ.LXJHGL.CLT
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //if ( boxid == null )
+            //{
+            //    MessageBox.Show("请输入查询条件");
+            //    return;
+            //}
+            string id = boxid.Text;
+            string creator = boxcreator.Text;
+            string status = comboBox1.SelectedValue.ToString();
+            
+        }
+        //private void UpdateStatus()
+        //{
+        //    int counter;
+          
+        //    // Iterate through the rows, skipping the Starting Balance row.
+        //    for (counter = 1; counter < (dataGridView1.Rows.Count - 1);
+        //        counter++)
+        //    {
+        //        if ((bool)dataGridView1.Rows[counter].Cells[0].EditedFormattedValue == true)
+        //            Tasks[counter].Status = LXJHGLStatus.未接收;                    
+        //    }
+        //}
+
 
 
     }

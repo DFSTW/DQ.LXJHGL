@@ -23,6 +23,7 @@ namespace DQ.LXJHGL.CLT
                 if (userType == LXJHGLUserType.组长)
                 {
                     zzjm.showzzjm();
+                    
                 }
                 else if (userType == LXJHGLUserType.组员)
                 {

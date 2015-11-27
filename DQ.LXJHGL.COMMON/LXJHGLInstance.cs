@@ -31,7 +31,7 @@ namespace DQ.LXJHGL.COMMON
         /// <summary>
         /// 版本
         /// </summary>
-        public int Version { set; get; }
+        public int  Version { set; get; }
         /// <summary>
         /// 定版人
         /// </summary>

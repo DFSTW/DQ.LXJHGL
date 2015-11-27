@@ -55,6 +55,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\Document\Desktop\PLM\PLMServer\Thyt.TiPLM.DEL.Admin.NewResponsibility.DLL</HintPath>
     </Reference>
+    <Reference Include="Thyt.TiPLM.PLL.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\TiPLM\PLMClient\Thyt.TiPLM.PLL.Common.DLL</HintPath>
+    </Reference>
     <Reference Include="Thyt.TiPLM.UIL.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\Document\Desktop\PLM\PLMServer\Thyt.TiPLM.UIL.Common.DLL</HintPath>

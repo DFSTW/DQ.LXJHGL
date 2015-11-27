@@ -38,5 +38,6 @@ namespace DQ.LXJHGL.COMMON
         //List<LXJHGLInstance> GetTasksByTime(DateTime fromtime, DateTime totime);
 
         LXJHGLUserType GetUserType(string userLogId);
+
     } 
 }
